@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   NextGen Fitness — design tokens
+   Palette is taken straight from the NextGen logo: teal + copper on charcoal.
+   ========================================================================== */
+@theme {
+  --color-ink:          #0b1216;
+  --color-ink-2:        #101a1f;
+  --color-surface:      #142127;
+  --color-surface-2:    #1b2b33;
+  --color-line:         #263a43;
+  --color-line-strong:  #33505c;
+  --color-fg:           #eef4f6;
+  --color-muted:        #93a7b0;
+
+  --color-teal:         #52a0a9;
+  --color-teal-light:   #7cc4cc;
+  --color-copper:       #c9784a;
+  --color-copper-light: #e6a06a;
+  --color-whatsapp:     #25d366;
+
+  --font-display: var(--font-anton), Impact, "Arial Narrow Bold", sans-serif;
+  --font-sans:    var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --ease-brand: cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 79px; /* the sticky header, including its 1px border */
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.03;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  ::selection {
+    background-color: var(--color-copper);
+    color: #1c0d06;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal-light);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  /* Brand gradients, used on CTAs, numerals and headline accents */
+  .bg-grad-copper {
+    background-image: linear-gradient(100deg, var(--color-copper), var(--color-copper-light));
+  }
+  .bg-grad-teal {
+    background-image: linear-gradient(100deg, var(--color-teal), var(--color-teal-light));
+  }
+  .text-grad-copper {
+    background-image: linear-gradient(100deg, var(--color-copper), var(--color-copper-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Scroll-reveal, driven by the <Reveal> component */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.65s var(--ease-brand),
+      transform 0.65s var(--ease-brand);
+  }
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
