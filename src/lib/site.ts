@@ -12,7 +12,7 @@ export const site = {
     "A fully air-conditioned strength, cardio and personal training gym in Pocket D, Sector 39, Gurgaon. Come see the floor and talk to a trainer.",
 
   address: {
-    street: "Pocket D, Sector 39",
+    street: "754, Pocket D, Sector 39",
     locality: "Gurugram",
     region: "Haryana",
     country: "IN",
@@ -35,9 +35,10 @@ export const site = {
 
   mapsUrl: "https://maps.app.goo.gl/EkVjhZh1mPZdnGcx6",
 
-  /** Open six days; PLACEHOLDER — confirm the actual opening and closing times. */
+  /** Open six days, two shifts. */
   hours: [
-    { days: "Monday – Saturday", time: "5:00 AM – 10:30 PM" },
+    { days: "Monday – Saturday", time: "6:00 AM – 12:00 PM" },
+    { days: "Monday – Saturday", time: "5:00 PM – 10:00 PM" },
     { days: "Sunday", time: "Closed" },
   ],
 } as const;

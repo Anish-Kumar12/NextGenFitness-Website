@@ -71,7 +71,7 @@ export function Contact() {
 
             <InfoRow icon={<ClockIcon className="size-5" />} heading="Timings">
               {site.hours.map((slot) => (
-                <p key={slot.days} className="text-base font-semibold">
+                <p key={`${slot.days}-${slot.time}`} className="text-base font-semibold">
                   {slot.days} &nbsp;{slot.time}
                 </p>
               ))}
